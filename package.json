@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "tstest",
+  "version": "0.1.0",
+  "main": "lib/plugin.js",
+  "scripts": {
+    "build:src": "tsc --project src && node scripts/copyfiles.js",
+    "build:extension": "node scripts/build_extension.js",
+    "build": "npm run build:src && npm run build:extension",
+    "clean": "rimraf lib && rimraf static",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@phosphor/widgets": "^0.1.4",
+    "jupyterlab": "^0.16.2"
+  },
+  "devDependencies": {
+    "@jupyterlab/extension-builder": "^0.11.0",
+    "fs-extra": "^0.30.0",
+    "rimraf": "^2.5.4",
+    "typescript": "^2.1.6"
+  }
+}
